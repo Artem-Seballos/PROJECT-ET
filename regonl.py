@@ -89,6 +89,13 @@ class Ui_RegWindow(object):
 
 if __name__ == "__main__":
     import sys
+    import ctypes
+
+    myappid = 'mycompany.myproduct.subproduct.version'
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
+    App = QtWidgets.QApplication([])
+    App.setWindowIcon(QtGui.QIcon('iconET.png'))
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_RegWindow()
